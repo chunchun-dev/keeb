@@ -1,10 +1,18 @@
 import React from 'react'
 import { gql, GraphQLClient } from 'graphql-request'
+import { Flex, Text, Heading, Badge, Box } from '@chakra-ui/layout'
+import { Image } from '@chakra-ui/image'
 
 function Switch({data}) {
     return (
-        <div>
-        </div>
+        <Flex p={10} flexWrap={'wrap'} width={'100%'} height={'max'}>
+            <Image src={data.switch.image.url} width={[300, '70%', '50%']}/>
+            <Flex flexDir={'column'} width={['100%','50%']}>
+                <Heading marginBottom={'4'}>{data.switch.title}</Heading>
+                <Badge marginBottom={'10'} width={'min-content'} colorScheme={data.switch.type == 'Linear' ? 'red' : 'teal'}>{data.switch.type}</Badge>
+                <Text>{data.switch.description}</Text>
+            </Flex>
+        </Flex>
     )
 }
 
@@ -38,7 +46,8 @@ export const getServerSideProps = async (context) => {
     }
   
     const data = await graphQlClient.request(query, variables)
-  
+    console.log(data)
+
     return {
         props: {
             data
