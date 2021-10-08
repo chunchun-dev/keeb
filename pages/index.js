@@ -7,7 +7,7 @@ export default function Home(props) {
   return (
     <Flex backgroundColor={'#f9fafb'} alignItems={'center'} justifyContent={'space-around'} paddingTop={10} flexWrap={'wrap'} flexShrink={'revert'}>
       {props.data.switches.map((Switch, idx) => (
-        <SwitchPreview title={Switch.title} type={Switch.type} key={idx} slug={Switch.slug} image={Switch.image}/>
+        <SwitchPreview title={Switch.title} type={Switch.type} key={idx} slug={Switch.slug} image={Switch.image.url}/>
       ))}
     </Flex>
   )
