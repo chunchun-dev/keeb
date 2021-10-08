@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.6.9",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
     "graphql": "^15.6.1",
     "graphql-request": "^3.5.0",
     "next": "11.1.2",
