@@ -6,7 +6,7 @@ export default function Home(props) {
   return (
     <div>
       {props.data.switches.map((Switch, idx) => (
-        <SwitchPreview title={Switch.title} type={Switch.type} key={idx} slug={Switch.slug}/>
+        <SwitchPreview title={Switch.title} type={Switch.type} key={idx} slug={Switch.slug} image={Switch.image}/>
       ))}
     </div>
   )
@@ -25,6 +25,9 @@ export const getStaticProps = async () => {
         description
         slug
         type
+        image {
+          url
+        }
       }
     }
   `
