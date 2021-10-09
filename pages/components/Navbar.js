@@ -230,7 +230,7 @@ const NAV_ITEMS = [
     },
     {
         label: 'Switches',
-        href: '#',
+        href: '/switch',
     },
     {
         label: 'Boards',

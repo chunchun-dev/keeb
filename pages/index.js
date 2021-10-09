@@ -1,43 +1,20 @@
-import { gql, GraphQLClient } from 'graphql-request'
-import { Flex } from '@chakra-ui/layout'
+import { Flex, Text, Heading } from '@chakra-ui/layout'
 import styles from '../styles/Home.module.css'
-import SwitchPreview from './components/SwitchPreview'
+import Link from 'next/link'
 
-export default function Home(props) {
+export default function Home() {
   return (
-    <Flex backgroundColor={'#f9fafb'} alignItems={'center'} justifyContent={'space-around'} paddingTop={10} flexWrap={'wrap'} flexShrink={'revert'}>
-      {props.data.switches.map((Switch, idx) => (
-        <SwitchPreview title={Switch.title} type={Switch.type} key={idx} slug={Switch.slug} image={Switch.image.url}/>
-      ))}
+    <Flex flexWrap={'wrap'} width={'100%'} height={['auto','95vh']}>
+      <Link href='/switch'>
+        <Flex width={['100%', '50%']} height={['100vw','95vh']} backgroundBlendMode={'multiply'} backgroundColor={'#7788a1'} justifyContent={'center'} alignItems={'center'} backgroundRepeat={'round'} backgroundImage={'/gat-ink-black.bmp'}>
+          <Heading textColor={'white'}>Switches</Heading>
+        </Flex>
+      </Link>
+      <Link href='/boards'>
+        <Flex width={['100%', '50%']} height={['100vw','95vh']} backgroundBlendMode={'multiply'} backgroundColor={'#7788a1'} justifyContent={'center'} alignItems={'center'} backgroundRepeat={'round'} backgroundImage={'/jellyepoch.bmp'}>
+          <Heading textColor={'white'}>Boards</Heading>
+        </Flex>
+      </Link>
     </Flex>
   )
-}
-
-// Data Fetching
-export const getStaticProps = async () => {
-  const url = `https://api-ap-northeast-1.graphcms.com/v2/${process.env.API_ID}/master`
-  const graphQlClient = new GraphQLClient(url)
-
-  const query = gql`
-    query {
-      switches {
-        id
-        title
-        description
-        slug
-        type
-        image {
-          url
-        }
-      }
-    }
-  `
-
-  const data = await graphQlClient.request(query)
-
-  return {
-    props: {
-      data
-    }
-  }
 }

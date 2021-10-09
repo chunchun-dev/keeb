@@ -46,7 +46,6 @@ export const getServerSideProps = async (context) => {
     }
   
     const data = await graphQlClient.request(query, variables)
-    console.log(data)
 
     return {
         props: {
