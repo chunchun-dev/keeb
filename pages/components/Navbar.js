@@ -99,7 +99,8 @@ const DesktopNav = () => {
                     _hover={{
                     textDecoration: 'none',
                     color: linkHoverColor,
-                    }}>
+                    }}
+                    className='link'>
                     {navItem.label}
                 </Link>
                 </PopoverTrigger>
@@ -114,7 +115,7 @@ const DesktopNav = () => {
                     minW={'sm'}>
                     <Stack>
                     {navItem.children.map((child) => (
-                        <DesktopSubNav key={child.label} {...child} />
+                        <DesktopSubNav key={child.label} {...child} className='link'/>
                     ))}
                     </Stack>
                 </PopoverContent>
@@ -129,6 +130,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
     return (
         <Link
+        className='link'
         href={href}
         role={'group'}
         display={'block'}
@@ -167,7 +169,7 @@ const MobileNav = () => {
         p={4}
         display={{ md: 'none' }}>
         {NAV_ITEMS.map((navItem) => (
-            <MobileNavItem key={navItem.label} {...navItem} />
+            <MobileNavItem key={navItem.label} {...navItem} className='link'/>
         ))}
         </Stack>
     );
@@ -213,7 +215,7 @@ const MobileNavItem = ({ label, children, href }) => {
             align={'start'}>
             {children &&
                 children.map((child) => (
-                <Link key={child.label} py={2} href={child.href}>
+                <Link key={child.label} py={2} href={child.href} className='link'>
                     {child.label}
                 </Link>
                 ))}
@@ -234,6 +236,6 @@ const NAV_ITEMS = [
     },
     {
         label: 'Boards',
-        href: '#',
+        href: '/board',
     },
 ];
