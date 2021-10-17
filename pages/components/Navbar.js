@@ -94,7 +94,7 @@ const DesktopNav = () => {
                     p={2}
                     href={navItem.href ?? '#'}
                     fontSize={'sm'}
-                    fontWeight={500}
+                    fontWeight={600}
                     color={linkColor}
                     _hover={{
                     textDecoration: 'none',
@@ -142,7 +142,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
             <Text
                 transition={'all .3s ease'}
                 _groupHover={{ color: 'pink.400' }}
-                fontWeight={500}>
+                fontWeight={600}>
                 {label}
             </Text>
             <Text fontSize={'sm'}>{subLabel}</Text>
@@ -227,15 +227,15 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
     {
-        label: 'Home',
+        label: 'HOME',
         href: '/'
     },
     {
-        label: 'Switches',
+        label: 'SWITCHES',
         href: '/switch',
     },
     {
-        label: 'Boards',
+        label: 'BOARDS',
         href: '/board',
     },
 ];
